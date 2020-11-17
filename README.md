@@ -1,0 +1,1 @@
+# vue-sfc-docs-webpack-plugin
