@@ -1,1 +1,1 @@
-# vue-sfc-docs-webpack-plugin
+# vue-sfc-docs
