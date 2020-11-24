@@ -32,9 +32,12 @@ function toTableStr (filePath) {
   if(fs.existsSync(filePath)) {
     const source = fs.readFileSync(filePath, 'utf-8')
     try {
-      const parserRes = parser(source)
+      let parserRes = parser(source)
+      parserRes.props && parserRes.props.map((props) => {
+        props.default = props.default? props.default.replace(/[\n]/g,'') : props.default
+      })
       const r = new Render.default(parserRes)
-      const markdownRes = r.renderMarkdown()
+      let markdownRes = r.renderMarkdown()
       const content = markdownRes.content.replace(/\<!-- @vuese.+?--\>/g, '')
       return content
     } catch(e) {
