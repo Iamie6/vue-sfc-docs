@@ -3,13 +3,6 @@
 const { parser } = require('@vuese/parser')
 const Render = require('@vuese/markdown-render')
 const fs = require('fs')
-const docs = process.env.npm_package_docs
-// 开关 在项目的package.json文件添加docs 字段 
-if (!docs) {
-  return
-}
-
-const packageFolderName = docs.packageFolderName || 'packages'
 
 const packages = fs.readdirSync(packageFolderName).filter((package)=>{
   if(/^\./.test(package)) return false
